@@ -1,6 +1,5 @@
 package com.example.ratelimiter.limiter;
 
-import com.example.ratelimiter.supplier.RuleSupplier;
 import io.lettuce.core.RedisClient;
 import io.lettuce.core.api.StatefulRedisConnection;
 
@@ -15,9 +14,9 @@ public class RedisRateLimiterFactory implements RequestRateLimiterFactory {
     }
 
     @Override
-    public ReactiveRateLimiter create(RuleSupplier ruleSupplier) {
+    public ReactiveRateLimiter create() {
         getConnection().reactive();
-        return new ReactiveRateLimiterImpl(getConnection().reactive(), getConnection().reactive(), ruleSupplier);
+        return new ReactiveRateLimiterImpl(getConnection().reactive(), getConnection().reactive());
     }
 
     @Override

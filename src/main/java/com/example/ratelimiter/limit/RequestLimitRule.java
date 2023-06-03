@@ -9,7 +9,6 @@ import static java.util.Objects.requireNonNull;
  * Defines a limit rule that can support regular and token bucket rate limits.
  */
 public class RequestLimitRule {
-
     private final int duration;
     private final long limit;
     private final int precision;
@@ -19,7 +18,7 @@ public class RequestLimitRule {
         this(duration, limit, precision, null);
     }
 
-    private RequestLimitRule(int duration, long limit, int precision, String name) {
+    public RequestLimitRule(int duration, long limit, int precision, String name) {
         this.duration = duration;
         this.limit = limit;
         this.precision = precision;
@@ -50,8 +49,6 @@ public class RequestLimitRule {
     }
 
     /**
-     * Controls (approximate) sliding window precision. A lower duration increases precision and minimises the Thundering herd problem - https://en.wikipedia.org/wiki/Thundering_herd_problem
-     *
      * @param precision Defines the time precision that will be used to approximate the sliding window. The precision must be greater than 1 second.
      * @return a limit rule
      */

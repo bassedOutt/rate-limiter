@@ -1,6 +1,5 @@
 package com.example.ratelimiter.limiter;
 
-import com.example.ratelimiter.supplier.RuleSupplier;
 import io.lettuce.core.cluster.RedisClusterClient;
 import io.lettuce.core.cluster.api.StatefulRedisClusterConnection;
 
@@ -9,13 +8,15 @@ import static java.util.Objects.requireNonNull;
 public class RedisClusterRateLimiterFactory implements RequestRateLimiterFactory {
     private final RedisClusterClient client;
     private StatefulRedisClusterConnection<String, String> connection;
+
     public RedisClusterRateLimiterFactory(RedisClusterClient client) {
         this.client = requireNonNull(client);
     }
+
     @Override
-    public ReactiveRateLimiter create(RuleSupplier ruleSupplier) {
+    public ReactiveRateLimiter create() {
         getConnection().reactive();
-        return new ReactiveRateLimiterImpl(getConnection().reactive(), getConnection().reactive(), ruleSupplier);
+        return new ReactiveRateLimiterImpl(getConnection().reactive(), getConnection().reactive());
     }
 
     @Override
