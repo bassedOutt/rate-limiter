@@ -6,11 +6,10 @@
         <groupId>com.murmylo.volodymyr</groupId>
         <artifactId>rate-limiter</artifactId>
         <version>0.0.1-SNAPSHOT</version>
-        <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <artifactId>rate-limiter-core</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>pom</packaging>
+    <packaging>jar</packaging>
     <name>rate-limiter-core</name>
     <description>rate-limiter-core</description>
     <properties>
