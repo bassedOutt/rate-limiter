@@ -56,7 +56,7 @@ public class RedisScriptLoader {
         }
     }
 
-    private String resetScript() {
+    private synchronized String resetScript() {
         return redisScriptingCommands.scriptFlush().block(Duration.of(5, ChronoUnit.SECONDS));
     }
 

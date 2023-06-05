@@ -20,7 +20,7 @@ public class ReactiveRateLimiterImpl implements ReactiveRateLimiter {
     private final RedisScriptingReactiveCommands<String, String> redisScriptingCommands;
     private final RedisKeyReactiveCommands<String, String> redisKeyCommands;
 
-    public ReactiveRateLimiterImpl(RedisScriptingReactiveCommands<String, String> redisScriptingReactiveCommands, RedisKeyReactiveCommands<String, String> redisKeyCommands) {
+    ReactiveRateLimiterImpl(RedisScriptingReactiveCommands<String, String> redisScriptingReactiveCommands, RedisKeyReactiveCommands<String, String> redisKeyCommands) {
         requireNonNull(redisScriptingReactiveCommands, "redisScriptingReactiveCommands can not be null");
         requireNonNull(redisKeyCommands, "redisKeyCommands can not be null");
         this.redisScriptingCommands = redisScriptingReactiveCommands;

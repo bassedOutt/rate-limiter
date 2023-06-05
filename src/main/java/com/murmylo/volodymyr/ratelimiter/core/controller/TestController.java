@@ -1,7 +1,6 @@
 package com.murmylo.volodymyr.ratelimiter.core.controller;
 
 import com.murmylo.volodymyr.ratelimiter.core.limit.RateLimitRule;
-import com.murmylo.volodymyr.ratelimiter.core.limit.RateLimited;
 import com.murmylo.volodymyr.ratelimiter.core.limit.RequestLimitRule;
 import com.murmylo.volodymyr.ratelimiter.core.limiter.ReactiveRateLimiter;
 import com.murmylo.volodymyr.ratelimiter.core.limiter.RedisRateLimiterFactory;
@@ -40,9 +39,8 @@ public class TestController {
     }
 
     @GetMapping("/api/hello")
-    @RateLimited({
-            @RateLimitRule(duration = 60, limit = 10, precision = 2, name = "hello-endpoint")
-    })
+    @RateLimitRule(duration = 60, limit = 10, precision = 2, name = "hello-endpoint")
+    @RateLimitRule(duration = 60, limit = 10, precision = 2, name = "hello-endpoint")
     public Mono<String> hello() {
         return Mono.just("Hello world!");
     }
