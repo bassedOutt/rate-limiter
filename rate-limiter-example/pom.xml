@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <parent>
-        <groupId>com.murmylo.volodymyr</groupId>
+        <groupId>com.ratelimiter</groupId>
         <artifactId>rate-limiter</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
@@ -12,11 +12,6 @@
     <packaging>jar</packaging>
     <artifactId>rate-limiter-example</artifactId>
 
-    <properties>
-        <maven.compiler.source>19</maven.compiler.source>
-        <maven.compiler.target>19</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -27,10 +22,9 @@
             <artifactId>spring-webflux</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.murmylo.volodymyr</groupId>
+            <groupId>com.ratelimiter</groupId>
             <artifactId>rate-limiter-core</artifactId>
             <version>0.0.1-SNAPSHOT</version>
-            <scope>compile</scope>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-mongodb-reactive -->
         <dependency>

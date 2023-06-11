@@ -4,6 +4,9 @@ import com.ratelimiter.core.limit.RateLimitRule;
 import com.ratelimiter.core.limit.RequestLimitRule;
 
 public class RequestLimitRuleMapper {
+    private RequestLimitRuleMapper() {
+    }
+
     public static RequestLimitRule mapFromAnnotation(RateLimitRule annotation) {
         int duration = annotation.duration();
         long limit = annotation.limit();

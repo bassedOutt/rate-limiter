@@ -40,7 +40,7 @@ public class RedisScriptLoader {
         try {
             script = readScriptFile();
         } catch (IOException e) {
-            throw new RuntimeException("Failed to load script file");
+            throw new ScriptLoadException("Failed to load script file");
         }
 
         return redisScriptingCommands.scriptLoad(script);
@@ -49,6 +49,7 @@ public class RedisScriptLoader {
     private String readScriptFile() throws IOException {
         URL url = RedisScriptLoader.class.getClassLoader().getResource(scriptUri);
         if (url == null) {
+            LOG.error("Script file not found {}", scriptUri);
             throw new IllegalArgumentException("script '" + scriptUri + "' not found");
         }
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(url.openStream(), StandardCharsets.UTF_8))) {

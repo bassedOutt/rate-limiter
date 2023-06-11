@@ -1,5 +1,9 @@
 package com.ratelimiter.core.limit;
 
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
 import java.time.Duration;
 import java.util.Objects;
 
@@ -8,13 +12,16 @@ import static java.util.Objects.requireNonNull;
 /**
  * Defines a limit rule that can support regular and token bucket rate limits.
  */
+@NoArgsConstructor
+@Setter
+@ToString
 public class RequestLimitRule {
-    private final int duration;
-    private final long limit;
-    private final int precision;
-    private final String name;
+    private int duration;
+    private long limit;
+    private int precision;
+    private String name;
 
-    private RequestLimitRule(int duration, long limit, int precision) {
+    public RequestLimitRule(int duration, long limit, int precision) {
         this(duration, limit, precision, null);
     }
 

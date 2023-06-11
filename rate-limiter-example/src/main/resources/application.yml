@@ -7,3 +7,11 @@ spring:
 logging:
   level:
     root: info
+
+request-limits:
+  limits:
+    getAllMovieInfos:
+      - duration: 120
+        limit: 10
+        precision: 2
+        name: movieInfoLimiter
