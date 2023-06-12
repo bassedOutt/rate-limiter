@@ -11,7 +11,13 @@ logging:
 request-limits:
   limits:
     getAllMovieInfos:
-      - duration: 120
+      - duration: 60
         limit: 10
-        precision: 2
+        precision: 5
         name: movieInfoLimiter
+    getMovieInfoById:
+      - duration: 60
+        limit: 5
+        precision: 10
+        name: movieInfoByIdLimiter
+

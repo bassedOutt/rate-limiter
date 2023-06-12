@@ -25,8 +25,6 @@ public class MoviesInfoController {
     @RateLimitRule(duration = 60, limit = 10, precision = 2, name = "limit1")
     @GetMapping("/movieinfos")
     public Flux<MovieInfo> getAllMovieInfos(@RequestParam(value = "year", required = false) Integer year) {
-
-        log.info("year : {} ", year);
         if (year != null) {
             return moviesInfoService.getMovieInfoByYear(year).log();
         }

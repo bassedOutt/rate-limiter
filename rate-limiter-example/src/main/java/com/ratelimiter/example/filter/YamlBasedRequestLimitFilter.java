@@ -42,6 +42,7 @@ public class YamlBasedRequestLimitFilter implements WebFilter {
                     ServerHttpRequest request = exchange.getRequest();
                     Set<RequestLimitRule> rules = requestLimitRuleMap.getOrDefault(method.getMethod().getName(), Collections.emptySet());
                     if (rules.isEmpty()) {
+                        log.info("No rules found for this method: {}", method.getMethod().getName());
                         return chain.filter(exchange);
                     }
                     String key = filterUtil.buildRequestLimitKey(request, method);

@@ -41,7 +41,7 @@ for i, limit in ipairs(limits) do
         else
             currentCount = redis.call('HGET', key, saved.countKey)
         end
-        if tonumber(currentCount or '0') > limit[2] then
+        if tonumber(currentCount or '0') >= limit[2] then
             return '1'
         end
     end
